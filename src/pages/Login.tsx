@@ -1,24 +1,26 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import LoginForm from "@/components/LoginForm";
+import { useAuth } from "@/contexts/AuthContext";
+import { Loader2 } from "lucide-react";
 
 const Login = () => {
   const navigate = useNavigate();
+  const { isAuthenticated, isLoading } = useAuth();
 
   useEffect(() => {
-    const authData = localStorage.getItem('simplix_auth');
-
-    if (authData) {
-      try {
-        const auth = JSON.parse(authData);
-        if (auth.user) {
-          navigate("/app/perfil");
-        }
-      } catch (error) {
-        localStorage.removeItem('simplix_auth');
-      }
+    if (isAuthenticated) {
+      navigate("/app/perfil");
     }
-  }, [navigate]);
+  }, [isAuthenticated, navigate]);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-background relative overflow-hidden flex">
