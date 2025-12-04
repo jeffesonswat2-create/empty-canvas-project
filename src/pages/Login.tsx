@@ -21,13 +21,11 @@ const Login = () => {
   }, [navigate]);
 
   return (
-    <div className="min-h-screen bg-gradient-dark relative overflow-hidden flex">
+    <div className="min-h-screen bg-background relative overflow-hidden flex">
       <div
         className="absolute inset-0 opacity-30"
         style={{
-          backgroundImage: "linear-gradient(135deg, hsl(222 17% 6%) 0%, hsl(202 100% 62% / 0.1) 100%)",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          background: "linear-gradient(135deg, hsl(222 17% 6%) 0%, hsl(202 100% 62% / 0.15) 100%)",
         }}
       />
       <div className="relative z-10 w-full flex items-center justify-center p-8">
