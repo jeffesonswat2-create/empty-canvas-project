@@ -1,0 +1,251 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Simplix Dark Theme */
+    --background: 222 17% 6%;          /* #0F1115 */
+    --foreground: 213 35% 92%;         /* #E7EEF6 */
+
+    --card: 222 25% 9%;                /* #151924 */
+    --card-foreground: 213 35% 92%;    /* #E7EEF6 */
+
+    --popover: 222 25% 9%;             /* #151924 */
+    --popover-foreground: 213 35% 92%;
+
+    --primary: 202 100% 62%;           /* #3BA3FF */
+    --primary-foreground: 213 35% 92%;
+
+    --secondary: 213 25% 18%;          /* #20283A */
+    --secondary-foreground: 213 35% 92%;
+
+    --muted: 213 25% 18%;              /* #20283A */
+    --muted-foreground: 211 25% 60%;   /* #8EA0B5 */
+
+    --accent: 32 100% 51%;             /* #FF8A00 */
+    --accent-foreground: 213 35% 92%;
+
+    --destructive: 0 84% 60%;          /* #EF4444 */
+    --destructive-foreground: 213 35% 92%;
+
+    --success: 142 71% 45%;            /* #22C55E */
+    --warning: 38 92% 50%;             /* #F59E0B */
+
+    --border: 213 25% 18%;             /* #20283A */
+    --input: 213 25% 18%;
+    --ring: 202 100% 62%;              /* #3BA3FF */
+
+    --radius: 0.5rem;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(202 100% 62%) 0%, hsl(202 100% 72%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(32 100% 51%) 0%, hsl(32 100% 61%) 100%);
+    --gradient-dark: linear-gradient(180deg, hsl(222 17% 6%) 0%, hsl(222 25% 9%) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 2px 4px hsl(222 25% 0% / 0.1);
+    --shadow-md: 0 4px 12px hsl(222 25% 0% / 0.15);
+    --shadow-lg: 0 8px 24px hsl(222 25% 0% / 0.2);
+    --shadow-glow: 0 0 20px hsl(202 100% 62% / 0.3);
+    --shadow-accent: 0 4px 12px hsl(32 100% 51% / 0.25);
+
+    /* Sidebar colors - fundo escuro fixo */
+    --sidebar-background: 218 25% 6%;          /* #050810 - fundo escuro fixo */
+    --sidebar-foreground: 211 41% 91%;         /* #E7EEF6 - texto claro */
+    --sidebar-muted: 211 20% 60%;              /* #8EA0B5 - ícones e textos secundários */
+    --sidebar-active: 215 28% 12%;             /* #111827 - fundo item ativo */
+    --sidebar-hover: 215 28% 10%;              /* #111827 - fundo hover */
+    --sidebar-border: 215 20% 13%;             /* #151924 - borda */
+    --sidebar-active-indicator: 201 100% 63%;  /* #3BA3FF - indicador azul */
+
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.15s ease-out;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html, body {
+    @apply bg-background text-foreground;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  /* Remove scrollbar visual */
+  * {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+
+  *::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    background: transparent; /* Chrome/Safari/Edge */
+  }
+}
+
+/* Sistema de Temas */
+@layer base {
+  /* Tema Claro */
+  html.theme-light {
+    --background: 0 0% 100%;          /* #FFFFFF */
+    --foreground: 222 47% 11%;        /* #0F1824 */
+
+    --card: 0 0% 98%;                 /* #FAFAFA */
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 202 100% 62%;          /* #3BA3FF */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 96%;         /* #F1F5F9 */
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 20% 40%;
+
+    --accent: 32 100% 51%;            /* #FF8A00 */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 71% 45%;
+    --warning: 38 92% 50%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 202 100% 62%;
+
+    /* Sidebar colors - fundo escuro fixo */
+    --sidebar-background: 218 25% 6%;          /* #050810 - fundo escuro fixo */
+    --sidebar-foreground: 211 41% 91%;         /* #E7EEF6 - texto claro */
+    --sidebar-muted: 211 20% 60%;              /* #8EA0B5 - ícones e textos secundários */
+    --sidebar-active: 215 28% 12%;             /* #111827 - fundo item ativo */
+    --sidebar-hover: 215 28% 10%;              /* #111827 - fundo hover */
+    --sidebar-border: 215 20% 13%;             /* #151924 - borda */
+    --sidebar-active-indicator: 201 100% 63%;  /* #3BA3FF - indicador azul */
+  }
+
+  /* Tema Escuro (padrão) */
+  html.theme-dark {
+    --background: 222 17% 6%;
+    --foreground: 213 35% 92%;
+
+    --card: 222 25% 9%;
+    --card-foreground: 213 35% 92%;
+
+    --popover: 222 25% 9%;
+    --popover-foreground: 213 35% 92%;
+
+    --primary: 202 100% 62%;
+    --primary-foreground: 213 35% 92%;
+
+    --secondary: 213 25% 18%;
+    --secondary-foreground: 213 35% 92%;
+
+    --muted: 213 25% 18%;
+    --muted-foreground: 211 25% 60%;
+
+    --accent: 32 100% 51%;
+    --accent-foreground: 213 35% 92%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 213 35% 92%;
+
+    --success: 142 71% 45%;
+    --warning: 38 92% 50%;
+
+    --border: 213 25% 18%;
+    --input: 213 25% 18%;
+    --ring: 202 100% 62%;
+
+    /* Sidebar colors - fundo escuro fixo */
+    --sidebar-background: 218 25% 6%;          /* #050810 - fundo escuro fixo */
+    --sidebar-foreground: 211 41% 91%;         /* #E7EEF6 - texto claro */
+    --sidebar-muted: 211 20% 60%;              /* #8EA0B5 - ícones e textos secundários */
+    --sidebar-active: 215 28% 12%;             /* #111827 - fundo item ativo */
+    --sidebar-hover: 215 28% 10%;              /* #111827 - fundo hover */
+    --sidebar-border: 215 20% 13%;             /* #151924 - borda */
+    --sidebar-active-indicator: 201 100% 63%;  /* #3BA3FF - indicador azul */
+  }
+}
+
+/* Sistema de Densidade do Layout */
+@layer base {
+  /* Densidade Compacta */
+  html.density-compact {
+    --spacing-unit: 0.75rem;
+    --input-height: 2rem;
+    --button-height: 2rem;
+    --card-padding: 0.75rem;
+    --section-spacing: 1rem;
+  }
+
+  html.density-compact .p-6 { padding: 1rem; }
+  html.density-compact .p-4 { padding: 0.75rem; }
+  html.density-compact .space-y-6 > * + * { margin-top: 1rem !important; }
+  html.density-compact .space-y-4 > * + * { margin-top: 0.75rem !important; }
+  html.density-compact .gap-6 { gap: 1rem !important; }
+  html.density-compact .gap-4 { gap: 0.75rem !important; }
+  
+  html.density-compact input,
+  html.density-compact select,
+  html.density-compact button {
+    height: 2rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  html.density-compact .text-3xl { font-size: 1.5rem; line-height: 2rem; }
+  html.density-compact .text-2xl { font-size: 1.25rem; line-height: 1.75rem; }
+  html.density-compact .text-xl { font-size: 1.125rem; line-height: 1.75rem; }
+
+  /* Densidade Padrão */
+  html.density-default {
+    --spacing-unit: 1rem;
+    --input-height: 2.5rem;
+    --button-height: 2.5rem;
+    --card-padding: 1rem;
+    --section-spacing: 1.5rem;
+  }
+
+  /* Densidade Ampla */
+  html.density-spacious {
+    --spacing-unit: 1.5rem;
+    --input-height: 3rem;
+    --button-height: 3rem;
+    --card-padding: 1.5rem;
+    --section-spacing: 2rem;
+  }
+
+  html.density-spacious .p-6 { padding: 2rem; }
+  html.density-spacious .p-4 { padding: 1.5rem; }
+  html.density-spacious .space-y-6 > * + * { margin-top: 2rem !important; }
+  html.density-spacious .space-y-4 > * + * { margin-top: 1.5rem !important; }
+  html.density-spacious .gap-6 { gap: 2rem !important; }
+  html.density-spacious .gap-4 { gap: 1.5rem !important; }
+  
+  html.density-spacious input,
+  html.density-spacious select,
+  html.density-spacious button {
+    height: 3rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  html.density-spacious .text-3xl { font-size: 2.25rem; line-height: 2.5rem; }
+  html.density-spacious .text-2xl { font-size: 1.875rem; line-height: 2.25rem; }
+  html.density-spacious .text-xl { font-size: 1.5rem; line-height: 2rem; }
+}
